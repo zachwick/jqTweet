@@ -2,7 +2,6 @@
     processTweets = function (jsonData) {
 	var searchResults = json_to_object(jsonData);
 	// Create the divs and show the tweets
-	console.log(searchResults);
 	for (var i=0;i<searchResults.results.length;i++) {
 	    $(callingDiv).append("<div class='tweet-wrapper'>"+searchResults.results[i].text+"</div><hr>");
 	}
