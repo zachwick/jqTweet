@@ -1,0 +1,33 @@
+{
+   "name":"jqTweet",
+   "version":"0.1",
+   "title":"jQuery.jqTweet()",
+   "author":{
+	"name":"Zach Wick",
+	"url":"http://www.zachwick.com"
+   },
+   "licenses":{
+	"type":"MIT",
+	"url":"http://www.opensource.org/licenses/mit-license.php"
+   },
+   "dependencies":{
+	"jquery":"1",
+   }
+   "description":"The purpose of this plugin to display the results of searching for a particular string on Twitter.",
+   "keywords":[
+	"tweet",
+	"twitter",
+	"search"
+   ],
+   "homepage":"http://www.zachwick.com/jqTweet/test.html",
+   "contributors":[
+	{
+	   "name":"Zach Wick",
+	   "url":"http://www.zachwick.com"
+	}
+   ],
+   "files":[
+	"jquery.jqTweet.js",
+	"test.html"
+   ]
+}
