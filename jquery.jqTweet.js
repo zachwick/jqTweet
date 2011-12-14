@@ -1,9 +1,16 @@
 (function ($) {
     processTweets = function (jsonData) {
 	var searchResults = json_to_object(jsonData);
-	// Create the divs and show the tweets
-	for (var i=0;i<searchResults.results.length;i++) {
-	    $(callingDiv).append("<div class='tweet-wrapper'>"+searchResults.results[i].text+"</div><hr>");
+	if (searchByAuthor) {
+	    for (var i=0;i<searchResults.results.length;i++) {
+		if (searchResults.results[i].from_user.toLowerCase() == searchTerm.toLowerCase()) {
+		    $(callingDiv).append("<div class='tweet-wrapper'>"+searchResults.results[i].text+"</div><hr>");
+		}
+	    }
+	} else {
+	    for (var i=0;i<searchResults.results.length;i++) {
+		$(callingDiv).append("<div class='tweet-wrapper'>"+searchResults.results[i].text+"</div><hr>");
+	    }
 	}
     };
     json_to_object = function (object_var) {
@@ -16,26 +23,31 @@
 	return eval('(' + object_var + ')');
     };
     var callingDiv;
+    var searchByAuthor;
+    var searchTerm;
     var methods = {
 	init : function(options) {
 	    var options = $.extend({
-		term:"jQuery"
+		term:"jQuery",
+		author:false,
 	    }, options);
 	    callingDiv = $(this);
+	    searchByAuthor = options.author;
+	    searchTerm = options.term;
 	    var searchURL = "http://search.twitter.com/search.json?&q="+
 		encodeURIComponent(options.term)+
 		"&callback=processTweets&_"+new Date().getTime();
 	    $(this).append("<script src='"+searchURL+"'></script>");
 	},
 	hide : function() {
-
+	    $(this).hide();
 	},
 	show : function() {
-
+	    $(this).show();
 	},
-	refresh : function() {
-
-	},
+	/*refresh : function() {
+	    
+	},*/
     };
 
     $.fn.jqTweet = function(method) {

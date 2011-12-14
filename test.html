@@ -7,8 +7,12 @@
     <div id="tweet-container"></div>
     <script>
       $("#tweet-container").jqTweet({
-         term:"ZachWick"
+         term:"ZachWick",
+         author:true,
+         repeat:true,
       });
+      $("#tweet-container").jqTweet("hide");
+      $("#tweet-container").jqTweet("show");
     </script>
   </body>
 </html>
