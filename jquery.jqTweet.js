@@ -1,4 +1,5 @@
 (function ($) {
+//This is comment exists solely to be a change.
     processTweets = function (jsonData) {
 	var searchResults = json_to_object(jsonData);
 	if (searchByAuthor) {
